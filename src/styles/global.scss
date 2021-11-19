@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato&family=Pacifico&family=Poppins:ital@1&family=Source+Sans+Pro&display=swap');
+
+.App {
+
+  font-family: "s"
+}
+
+.App-header {
+
+}
+
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.App {
+@apply font-src
+}
+
+ .btn {
+@apply    p-2 px-4 bg-pri-1 capitalize text-lg rounded-lg font-semibold
+}
+
+ .btn_2 {
+@apply p-1 px-4 border border-pri-1 capitalize text-lg rounded-lg font-medium bg-transparent text-pri-1 
+}
+
+ .title {
+@apply  text-xl font-bold text-txt-1
+}
+
+.txt_head{
+@apply  text-2xl font-semibold text-black
+
+}

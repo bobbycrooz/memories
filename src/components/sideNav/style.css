@@ -1,0 +1,53 @@
+.bm-burger-button {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    right: 36px;
+    top: 28px;
+    display: none;
+    z-index: 777;
+}
+
+@media screen and (max-width: 470px) {
+    .bm-burger-button {
+        position: absolute;
+       
+        display: block;
+    }
+}
+
+.bm-burger-bars {
+    background: #373a47;
+}
+
+.bm-cross-button {
+    height: 34px;
+    width: 34px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+    background: #0006;
+   width:20px;
+   height:20px;
+}
+
+
+
+.nav_itemm {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid red;
+    
+}
+
+.bm-menu {
+   height: 100%;
+    /* overflow: hidden; */
+    
+}
+
+.menu-item:hover,
+.menu-item.active {
+    color: red;
+}
