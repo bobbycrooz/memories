@@ -1,4 +1,5 @@
-# welcome to the enye-hackathon 2021
+# welcome to wavepalm tech, all component are made static and can be viewed from any link,
+# for testing purpose
 
 
 ## Main Stack
