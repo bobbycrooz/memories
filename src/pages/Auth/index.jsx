@@ -1,151 +1,105 @@
 import React from "react";
-import styled from "styled-components";
-import { useForm } from "react-hook-form";
-import { GrFormClose } from "react-icons/gr";
-import googleIcon from "../../asset/google.png";
-import Form from "./Form";
-import { useDispatch, useSelector } from "react-redux";
-import {SIGN_UP,LOG_IN } from '../../redux/AuthSlice'
+import { Main } from "./style";
+import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
+import Header from "../../components/header";
+// import membg from "../../asset/mem1.jpg";
 
-
-
-// component for authentication login and sign up
-const index = (props) => {
-     const [isSigningUp, setIsSigningUp] = React.useState(true);
-  
-     const dispatch = useDispatch();
-
-     function submitHandler(data) {
-          if (isSigningUp) {
-               dispatch(SIGN_UP(data));
-               console.log('im signing up');
-          } else {
-               dispatch(LOG_IN(data));
-               
-          }
-     }
+const index = () => {
+     const [isSigning, setIsSigning] = React.useState(true);
 
      return (
-          <AuthCard className='w-full p-2 px-4 md:px-11 my-4'>
-               <div className='cancle_btn flex justify-between  mb-4'>
-                    <span className='space w-6'></span>
-                    <div className='icon '>
-                         <GrFormClose onClick={props.closeModal} className='text-3xl text-txt-1' />
-                    </div>
+          <Main class=''>
+               <div className='layer w-full h-full relative flex items-center justify-center'>
+                    <Header />
+
+                    <form className='form-container  '>
+                         <div class='bg-gray-100 rounded-lg p-8 flex flex-col w-full '>
+                              <h2 class='text-gray-900 text-xl font-semibold font-lato title-font mb-2'>
+                                   {isSigning ? "Create new memories account" : "Welcome back"}
+                              </h2>
+
+                              <p className='notice text-xs text-gray-900 mb-5'>
+                                   {isSigning
+                                        ? "Just few steps to begin sharing your memories"
+                                        : "Login into your account"}
+                              </p>
+                              {/**/}
+
+                              {isSigning && (
+                                   <div class='relative mb-1'>
+                                        <label for='full-name' class='leading-7 text-sm text-gray-600'>
+                                             Full Name
+                                        </label>
+                                        <input
+                                             type='text'
+                                             id='full-name'
+                                             name='full-name'
+                                             placeholder='Bobby'
+                                             class='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+                                        />
+                                   </div>
+                              )}
+
+                              {/**/}
+                              {/**/}
+                              <div class='relative mb-1'>
+                                   <label for='email' class='leading-7 text-sm text-gray-600'>
+                                        Email
+                                   </label>
+                                   <input
+                                        type='email'
+                                        id='email'
+                                        name='email'
+                                        placeholder='Bobby@gmail.com'
+                                        class='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+                                   />
+                              </div>
+                              {/**/}
+                              <div class='relative mb-4'>
+                                   <label for='email' class='leading-7 text-sm text-gray-600'>
+                                        Password
+                                   </label>
+                                   <input
+                                        type='password'
+                                        id='password'
+                                        name='password'
+                                        placeholder='*******'
+                                        class='w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+                                   />
+                              </div>
+                              {/**/}
+
+                              <button class='text-white btn1-color border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg tracking-tight'>
+                                   {isSigning ? "Get started, it's free" : "Login "}
+                              </button>
+                              <button
+                                   onClick={() => setIsSigning((p) => !p)}
+                                   className='border text-left text-xs text-gray-500 underline my-2'>
+                                   forgot password
+                              </button>
+                              <div className='flex item-center '>
+                                   <p class='text-xs text-gray-500'>already signed up?</p>
+                                   <button className=' text-left text-xs text-gray-500 underline ml-2'>
+                                        {!isSigning ? "Sign up" : "Log In "}
+                                   </button>
+                              </div>
+                         </div>
+                    </form>
                </div>
-
-               {/* */}
-
-               <div className='header'>
-                    {isSigningUp && <h1 className='text-txt-1 font-bold text-3xl capitalize '>sign up</h1>}
-                    {isSigningUp && <p className='learn'>Learn on your own time from top lecturers</p>}
-
-                    <div className='w-full text-center'>
-                         {" "}
-                         {!isSigningUp && <h1 className='font-semibold text-4xl '>Welcome back</h1>}
-                    </div>
-                    <button
-                         onClick={() => setIsSigningUp((prev) => !prev)}
-                         className='google_btn flex items-center mt-6 rounded-lg p-2 py-3  justify-center capitalize border w-full'>
-                         <img src={googleIcon} alt='' />
-                         <p className='ml-4 font-semibold text-txt-1'>
-                              {" "}
-                              {!isSigningUp ? "Sign up with Google" : "Sign in with Google"}
-                         </p>
-                    </button>
-               </div>
-
-               {/* */}
-
-               <div className='hr w-full relative h-11 my-1 flex items-center'>
-                    <div className='border w-full'></div>
-                    <div className='absolute alternative bg-white p-2'>
-                         <h1 className='text-center capitalize'>
-                              {isSigningUp ? "sign in with Email" : "Sign up with Email"}
-                         </h1>
-                    </div>
-               </div>
-               {/* */}
-
-               {/* form component*/}
-               <Form isSigningUp={isSigningUp} setIsSigningUp={setIsSigningUp} submitHandler={submitHandler} />
-               {/* form component*/}
-          </AuthCard>
+          </Main>
      );
 };
 
-const AuthCard = styled.div`
-     height: 100%;
-
-     .alternative {
-          left: 50%;
-          transform: translateX(-50%);
-     }
-
-     form {
-          label {
-               height: auto;
-               margin: 15px 0;
-
-               span {
-                    font-weight: 600;
-                    font-size: 16px;
-                    color: #171717;
-               }
-
-               input {
-                    height: 48px;
-                    border-radius: 8px;
-                    border: 1px solid #c4c4c4;
-                    margin-top: 5px;
-                    padding: 10px;
-                    color: #171717;
-                    font-weight: 500;
-                    &::placeholder {
-                         /* color: red; */
-                         color: #c4c4c4;
-                    }
-
-                    &:focus {
-                         outline: #11c469;
-                         border: 3px solid #11c469;
-                    }
-               }
-
-               .input_ {
-                    border: 1px solid red;
-                    width: 16px;
-                    height: 16px;
-               }
-               input[type="checkbox"] {
-                    position: relative;
-
-                    &::before {
-                         position: absolute;
-                         content: "";
-                         width: 100%;
-                         height: 100%;
-                         top: 0;
-                         left: 0;
-                         background-color: #11c469;
-                    }
-
-                    &:checked {
-                         background-color: #11c469;
-                    }
-               }
-          }
-
-          button {
-               border-radius: 8px;
-               font-weight: semibold;
-               font-size: 20px;
-
-               &:disabled {
-                    background: #c4c4c4;
-               }
-          }
-     }
-`;
-
+function Icon() {
+     return (
+          <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='#878989'>
+               <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+               />
+          </svg>
+     );
+}
 export default index;

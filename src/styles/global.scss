@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato&family=Pacifico&family=Poppins:ital@1&family=Source+Sans+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato&family=Pacifico&family=Poppins:ital@1&family=Source+Sans+Pro&display=swap");
 
-.App {
-
-  font-family: "s"
-}
-
-.App-header {
-
+* {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
 }
 
 /* ./src/index.css */
@@ -14,24 +11,49 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn1-color {
+     // color: black;
+     color: rgb(255, 255, 255);
 
-.App {
-@apply font-src
+     background: hsla(217, 100%, 50%, 1);
+     transition: all 0.8s all ease-in;
+
+     &:hover {
+          background: linear-gradient(110deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+
+          background: -moz-linear-gradient(110deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+
+          background: -webkit-linear-gradient(110deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+     }
 }
 
- .btn {
-@apply    p-2 px-4 bg-pri-1 capitalize text-lg rounded-lg font-semibold
+.btn2-color {
+     color: rgb(255, 255, 255);
+     transition: all 0.8s all ease-in;
+
+     background: rgba(0, 0, 0, 0);
+     transition: all 3s all ease-in;
+     // border-bottom:1px solid 
+     // border-radius: 8px;
+
+     &:hover {
+     background: rgba(238, 238, 238, 0.281);
+      
+     }
 }
 
- .btn_2 {
-@apply p-1 px-4 border border-pri-1 capitalize text-lg rounded-lg font-medium bg-transparent text-pri-1 
+.primary {
+     color: #0062fff5;
 }
 
- .title {
-@apply  text-xl font-bold text-txt-1
+.primary-bg {
+     background: rgba(0, 98, 255, 0.911);
 }
 
-.txt_head{
-@apply  text-2xl font-semibold text-black
+.you {
+     color: #0000002f;
+}
 
+.footer-bg {
+     background: #f5f9fb;
 }
