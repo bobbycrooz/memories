@@ -1,6 +1,6 @@
-import syled from "styled-components";
+import styled from "styled-components";
 
-export const Main = syled.main`
-width: 100%;
-
+export const Main = styled.section`
+     width: 100%;
+     /* height: 60vh; */
 `;

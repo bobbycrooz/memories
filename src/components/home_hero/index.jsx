@@ -9,7 +9,7 @@ import Slider from "react-slick";
 const index = () => {
      return (
           <Main class='text-gray-600 body-font  '>
-               <div className='hero px-14   w-full h-full mt-20 pt-11'>
+               <div className='hero px-14   w-full h-full mt-11 pt-11'>
                     <div className='hero_background  mt-9 w-full flex justify-center rounded-t-md'>
                          <div className='hero_content w-1/2 space-y-6 '>
                               <h1 className='hero-text text-center text-4xl font-lato font-bold text-white mt-6'>

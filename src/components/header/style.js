@@ -8,4 +8,8 @@ z-index: 999999;
 /* background: #fff; */
 /* filter: blur(9px) */
 
+.search-container{
+      width: 530px;
+}
+
 `;
