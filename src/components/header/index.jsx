@@ -127,7 +127,7 @@ function DefaultHeader() {
                     {/* */}
                     {/* CTO button*/}
 
-                    <div className='button-container'>
+                    <div className={`${location.pathname === "/auth" ? "hidden" : "button-container"}`}>
                          <NavLink
                               to='/auth'
                               class={`${

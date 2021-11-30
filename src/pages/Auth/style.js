@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import mem4 from '../../asset/mem3.jpg'
+import mem4 from '../../asset/mem2.jpg'
 
 export const Main = styled.section`
      width: 100%;
@@ -14,6 +14,6 @@ export const Main = styled.section`
           /* background: #0009; */
           /* background-image: -webkit-radial-gradientc(#000, #fff);
           background-image: -moz-radial-gradient(#000, #fff); */
-          background-image: radial-gradient(#0006,#000);
+          background-image: radial-gradient(#0007,#000b);
      }
 `;
