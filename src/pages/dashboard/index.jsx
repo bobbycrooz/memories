@@ -9,28 +9,109 @@ import Header from "../../components/header";
 // import membg from "../../asset/mem1.jpg";
 
 const index = () => {
+     const [showDetails, setShowDetails] = React.useState(true);
+
+     function detailsHandler() {
+          setShowDetails((p) => !p);
+          console.log("i clickked");
+          window.scrollTo(0,10)
+     }
+
      return (
           <Main className='dashboard bg-gray-200 pt-20 text-gray-700'>
                <Header />
                <div className='layout w-full h-auto  flex'>
+                    {/* */}
+                    {/* side pane */}
                     <div className='border  side-pane flex justify-end p-2'>
-                         <div className='border 0  w-1/2 h-full'>
-                              <h1></h1>
+                         <div className='border 0  w-2/3 h-full'>
+                              <div className='card w-full shadow-md bg-gray-50 p-2 rounded-lg mt-2'>
+                                   <div className='flex items-center border-b justify-between py-2' >
+                                        <h1 className='not-medium capitalize'>notificaions</h1>
+                                        <span className=''>x</span>
+                                   </div>
+
+                                   <div className='body p-1 mt-2'>
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est odio corrupti
+                                        perferendis aut perspiciatis illo quisquam dignissimos tempora
+                                   </div>
+                              </div>
                          </div>
                     </div>
+
+                    {/* main app */}
+
                     <div className='  main-app p-2 py-4'>
                          <div className='w-full h-full bg-gray-50  rounded-t-md shadow-sm p-2'>
+                              {/* memories details*/}
+
+                              {showDetails && (
+                                   <section id='details' className='details w-full p-2 py-5'>
+                                        <div className='most-rencent py-5 p-2 capitalize w-full border-b font-semibold text-2xl font-lato flex justify-between'>
+                                             <h1 className='recent-title'>Memory by bobbyDev</h1>
+
+                                             <button onClick={detailsHandler} className='close text-lg font-semibold'>
+                                                  close
+                                             </button>
+                                        </div>
+
+                                        <div className='img-gallery border w-full  h-80 bg-gray-400'>
+                                             <img src='' alt='img gallery' />
+                                        </div>
+
+                                        <div className='action-coontainer  border flex justify-between'>
+                                             <div className='date border p-2'>date</div>
+                                             <div className='action border p-2'>action icon goes in here..</div>
+                                        </div>
+
+                                        <section id='descripton' className='discription w-full py-2 p-1 bordered'>
+                                             <div className='most-rencent p-2 capitalize w-full border-b font-semibold text-xl font-lato'>
+                                                  <h1 className='descriprition-title'>On this faithful day..</h1>
+                                             </div>
+
+                                             <p className='details w-2/3 py-6 p-2 text-lg'>
+                                                  {" "}
+                                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quae
+                                                  deserunt, ea dolor laborum earum quisquam. Ad mollitia tenetur quidem
+                                                  cupiditate aperiam quisquam autem deserunt exercitationem enim? Eius,
+                                                  eligendi tempora?
+                                                  <br />
+                                                  <br />
+                                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio animi
+                                                  deleniti dicta perspiciatis atque, expedita recusandae eveniet magnam
+                                                  facere ipsam quo velit aperiam molestias iure. Suscipit nostrum soluta
+                                                  facilis veritatis.
+                                                  <br />
+                                                  <br />
+                                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio animi
+                                                  deleniti dicta perspiciatis atque, expedita recusandae eveniet magnam
+                                                  facere ipsam quo velit aperiam molestias iure. Suscipit nostrum soluta
+                                                  facilis veritatis.
+                                                  <br />
+                                                  <br />
+                                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio animi
+                                                  deleniti dicta perspiciatis atque, expedita recusandae eveniet magnam
+                                                  facere ipsam quo velit aperiam molestias iure. Suscipit nostrum soluta
+                                                  facilis veritatis.
+                                             </p>
+
+                                             <div className='sign-name font-2xl font-pac text-indigo-700'>bobby</div>
+                                        </section>
+                                   </section>
+                              )}
+
+                              {/* your post from */}
                               <section className='trending p-3'>
                                    {/* */}
                                    <div className='most-rencent py-5 p-2 capitalize w-full border-b font-semibold text-2xl font-lato'>
                                         <h1 className='recent-title'>Your memories</h1>
                                    </div>
                                    <div className='mt-6 container w-full'>
-                                        <SimpleSlider />
+                                        <SimpleSlider click={detailsHandler} />
                                    </div>
                               </section>
 
-                              {/* */}
+                              {/* recenet posts */}
                               <section className='trending p-3'>
                                    {/* */}
                                    <div className='most-rencent py-5 p-2 capitalize w-full border-b font-semibold text-2xl font-lato'>
@@ -66,11 +147,12 @@ const index = () => {
                                                                       </h1>
                                                                       <span className='h-1'></span>
 
-                                                                      <Link
+                                                                      <button
+                                                                           onClick={detailsHandler}
                                                                            className='read-more capitalize  text-sm 
                                                                       border py-1 px-3 w-16'>
                                                                            view
-                                                                      </Link>
+                                                                      </button>
                                                                  </div>
                                                             </div>
                                                        </Memcard>
@@ -80,6 +162,9 @@ const index = () => {
                               </section>
                          </div>
                     </div>
+
+                    {/* right pane */}
+
                     <div className='border   right-pane p-2 flex justify-start'>
                          <div className='w-1/2  h-full'>
                               <h1></h1>
@@ -103,11 +188,9 @@ function Icon() {
      );
 }
 
-
-
-function SimpleSlider() {
+function SimpleSlider({ click }) {
      var settings = {
-          className: "center",
+          // className: "center",
           centerMode: true,
           infinite: true,
           centerPadding: "60",
@@ -119,7 +202,7 @@ function SimpleSlider() {
           arrows: true,
      };
      return (
-          <div className='slider px-4'>
+          <div className='slider px-5'>
                <Slider {...settings}>
                     {Array(6)
                          .fill(1)
@@ -148,11 +231,12 @@ function SimpleSlider() {
                                                   </h1>
                                                   <span className='h-1'></span>
 
-                                                  <Link
+                                                  <button
+                                                       onClick={click}
                                                        className='read-more capitalize  text-sm 
                                                                       border py-1 px-3 w-16'>
                                                        view
-                                                  </Link>
+                                                  </button>
                                              </div>
                                         </div>
                                    </Memcard>

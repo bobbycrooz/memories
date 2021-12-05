@@ -20,11 +20,23 @@ export const Main = styled.section`
 
      .slider {
           .slick-arrow {
-               width: 40px;
+               width: 70px;
 
                &:before {
-                    color: #0047ab;
+                    color: #0047ab77;
+                    /* width: 70px; */
                }
+          }
+
+          .slick-next .slick-prev {
+               width: 70px;
+               height: 70px;
+          }
+
+          .slick-current {
+               /* border-bottom: 1px solid red; */
+               transform: scale(1.03);
+               transition: all 0.4s linear;
           }
      }
 `;
@@ -40,6 +52,7 @@ export const Memcard = styled.div`
           background-position: center;
           background-size: cover;
           height: 225px;
+          /* background-attachment:fixed; */
 
           /* border: 1px solid red; */
      }
